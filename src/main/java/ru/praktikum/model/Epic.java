@@ -2,8 +2,6 @@ package ru.praktikum.model;
 
 import java.util.ArrayList;
 
-import static ru.praktikum.model.TaskType.EPIC;
-
 public class Epic extends Task {
     private ArrayList<Integer> idSubtask;
 
@@ -15,9 +13,19 @@ public class Epic extends Task {
 
     }
 
+    public Epic(String name, String description, Status status, ArrayList<Integer> idSubtask) {
+        super(name, description, status);
+        this.idSubtask = idSubtask;
+    }
+
     public Epic(int id, String name, String description, Status status, ArrayList<Integer> idSubtask) {
         super(id, name, description, status);
         this.idSubtask = idSubtask;
+    }
+
+    public Epic(Epic epic) {
+        super(epic);
+        this.idSubtask = epic.idSubtask;
     }
 
     @Override
@@ -44,8 +52,14 @@ public class Epic extends Task {
     public void removeAllIdSubtask() {
         idSubtask.clear();
     }
+
+    @Override
+    public TaskType getType() {
+        return TaskType.EPIC;
+    }
+
     @Override
     public String toString() {
-        return EPIC + "," + id + "," + name + "," + description + "," + status + "\n";
+        return getType() + "," + id + "," + name + "," + description + "," + status + "\n";
     }
 }

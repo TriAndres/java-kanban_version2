@@ -4,33 +4,60 @@ import java.util.ArrayList;
 
 public interface Tasks {
     //Task
-    default int getId() {return 0;}
+    default int getId() {
+        return 0;
+    }
 
-    default void setId(int id) { }
+    default void setId(int id) {
+    }
 
-    default String getName() {return null;}
+    default String getName() {
+        return null;
+    }
 
-    default void setName(String name) {}
+    default void setName(String name) {
+    }
 
-    default String getDescription() {return null;}
+    default String getDescription() {
+        return null;
+    }
 
-    default void setDescription(String description) {}
+    default void setDescription(String description) {
+    }
 
-    default Status getStatus() {return null;}
+    default Status getStatus() {
+        return null;
+    }
 
-    default void setStatus(Status status) {}
+    default void setStatus(Status status) {
+    }
+
+    default TaskType getType() {
+        return null;
+    }
+
     //Epic
-    default ArrayList<Integer> getIdSubtask() {return null;}
+    default ArrayList<Integer> getIdSubtask() {
+        return null;
+    }
 
-    default void setIdSubtask(ArrayList<Integer> idSubtask) {}
+    default void setIdSubtask(ArrayList<Integer> idSubtask) {
+    }
 
-    default void addIdSubtask(int id) {}
+    default void addIdSubtask(int id) {
+    }
 
-    default void removeIdSubtask(int id) { }
+    default void removeIdSubtask(int id) {
+    }
 
-    default void removeAllIdSubtask() { }
+    default void removeAllIdSubtask() {
+    }
+
     //Subtask
-    default int getIdEpic() {return 0;}
+    default int getIdEpic() {
+        return 0;
+    }
 
-    default void setIdEpic(int idEpic) { }
+    default void setIdEpic(int idEpic) {
+    }
 }

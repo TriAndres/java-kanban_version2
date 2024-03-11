@@ -1,7 +1,5 @@
 package ru.praktikum.model;
 
-import static ru.praktikum.model.TaskType.SUBTASK;
-
 public class Subtask extends Task {
     private int idEpic;
 
@@ -12,9 +10,19 @@ public class Subtask extends Task {
         setName("Подзадача");
     }
 
+    public Subtask(String name, String description, Status status, int idEpic) {
+        super(name, description, status);
+        this.idEpic = idEpic;
+    }
+
     public Subtask(int id, String name, String description, Status status, int idEpic) {
         super(id, name, description, status);
         this.idEpic = idEpic;
+    }
+
+    public Subtask(Subtask subtask) {
+        super(subtask);
+        this.idEpic = subtask.idEpic;
     }
 
     @Override
@@ -26,8 +34,14 @@ public class Subtask extends Task {
     public void setIdEpic(int idEpic) {
         this.idEpic = idEpic;
     }
+
+    @Override
+    public TaskType getType() {
+        return TaskType.SUBTASK;
+    }
+
     @Override
     public String toString() {
-        return SUBTASK + "," + id + "," + name + "," + description + "," + status + "\n";
+        return getType() + "," + id + "," + name + "," + description + "," + status + "\n";
     }
 }

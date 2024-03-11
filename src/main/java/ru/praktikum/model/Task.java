@@ -2,8 +2,6 @@ package ru.praktikum.model;
 
 import java.util.Objects;
 
-import static ru.praktikum.model.TaskType.EPIC;
-
 public class Task implements Tasks{
     protected int id;
     protected String name;
@@ -17,12 +15,26 @@ public class Task implements Tasks{
         setStatus(Status.NEW);
     }
 
+    public Task(String name, String description, Status status) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+    }
+
     public Task(int id, String name, String description, Status status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
     }
+
+    public Task(Task task) {
+        this.id = task.id;
+        this.name = task.name;
+        this.description = task.description;
+        this.status = task.status;
+    }
+
     @Override
     public int getId() {
         return id;
@@ -55,6 +67,10 @@ public class Task implements Tasks{
     public void setStatus(Status status) {
         this.status = status;
     }
+    @Override
+    public TaskType getType() {
+        return TaskType.TASK;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,6 +87,6 @@ public class Task implements Tasks{
 
     @Override
     public String toString() {
-        return EPIC + "," + id + "," + name + "," + description + "," + status + "\n";
+        return getType() + "," + id + "," + name + "," + description + "," + status + "\n";
     }
 }

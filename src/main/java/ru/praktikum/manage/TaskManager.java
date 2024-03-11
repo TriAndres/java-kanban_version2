@@ -1,6 +1,5 @@
 package ru.praktikum.manage;
 
-import ru.praktikum.exeption.ManagerException;
 import ru.praktikum.model.Epic;
 import ru.praktikum.model.Subtask;
 import ru.praktikum.model.Task;
